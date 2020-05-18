@@ -129,16 +129,8 @@ def get_data_from_flipkart2(pageNo):
                 alls.append(all1)
             return alls
 
-def flatten(l): return [item for sublist in l for item in sublist]
-
-
 def flatten(list): return [item for sublist in list for item in sublist]
 
-
-# def flatten(list):
-#     for sublist in list:
-#         for item in sublist:
-#             return [item]
 """ Extracting data from Amazon """
 a_results = []
 for i in range(1, no_pages + 1):
