@@ -15,6 +15,7 @@ while True:
         print('Oops...Kindly enter a **Number** to proceed: ')
 
 
+# FlipKart Crawler
 def get_data_from_flipkart(pageNo):
     with requests.Session() as f_s:
         f_headers = {
@@ -55,7 +56,7 @@ def get_data_from_flipkart(pageNo):
             alls.append(all1)
         return alls
 
-
+# Amazon Crawler
 def get_data_from_amazon(pageNo):
     with requests.Session() as a_s:
         a_headers = {
@@ -88,7 +89,9 @@ def get_data_from_amazon(pageNo):
 
             alls.append(all1)
         return alls
-
+    
+    
+# Flipkart Crawler2 for mobile version
 def get_data_from_flipkart2(pageNo):
         with requests.Session() as f_s:
             f_headers = {
@@ -129,6 +132,7 @@ def get_data_from_flipkart2(pageNo):
                 alls.append(all1)
             return alls
 
+# flatten = lambda l: [item for sublist in l for item in sublist]
 def flatten(list): return [item for sublist in list for item in sublist]
 
 """ Extracting data from Amazon """
@@ -155,10 +159,6 @@ if df_flipkart.empty:
     results2 = []
     for i in range(1, no_pages + 1):
         results2.append(get_data_from_flipkart2(i))
-
-    # flatten = lambda l: [item for sublist in l for item in sublist]
-    def flatten(list): return [item for sublist in list for item in sublist]
-
 
     df_flipkart2 = pd.DataFrame(flatten(results2), columns=[
         'title', 'seller_author', 'rating', 'price'])
