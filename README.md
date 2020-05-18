@@ -9,7 +9,7 @@ pip install -r requirements.txt
 Open the command prompt & run the python script:
 
 ```python
-python scraper_main.py
+python scraper.py
 ```
 **Search Steps:**
 
